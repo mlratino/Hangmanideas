@@ -1,0 +1,33 @@
+var words = ["dahlia", "hibiscus", "rhodenderon", "sunflower"];
+
+
+
+var choseAlphabet = [];
+var index;
+var chosenWord = []
+var win = []
+var index = Math.floor(Math.random() * 4)
+var stringLenght = words[index]
+var letters = document.querySelector("#letters");
+var correct = document.querySelector("#word")
+var lives = 5;
+document.onkeyup = function(event){ 
+    var keyup = String.fromCharCode(event.keyCode).toLowerCase();
+    console.log(stringLenght)
+    var split = stringLenght.split("")
+    console.log(split)
+    for(var i = 0; split.length < i; i++)  {
+        if(keyup == split[i]) {
+            win.push(keyup);
+            correct.innerHTML = win;
+        } else {
+            choseAlphebet.push(keyup);
+            letters.innerHTML = choseAlphebet;
+        } 
+    }
+    if(split.length === win.length) {
+        split.length = []
+        win.length = []
+        alert("win")
+    }
+}
